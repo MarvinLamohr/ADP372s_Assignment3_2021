@@ -1,3 +1,10 @@
+
+/* EmployeeFactory.java
+   Factory for the Employee
+   Author: Marvin Lamohr (214273830)
+   Date: 11 June 2021
+ */
+
 package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.Employee;
