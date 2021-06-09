@@ -4,7 +4,7 @@ import za.ac.cput.Entity.Booking;
 
 /*  BookingFactory.java
  *  Factory for the booking
- *  Author: Ian Louw (216250773)
+ *  Author: Ian Louw(216250773)
  *  Date: 11 June 2021
  */
 
