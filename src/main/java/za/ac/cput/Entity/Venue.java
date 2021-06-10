@@ -1,5 +1,5 @@
-/* Address.java
-    Entity for the Address
+/* Venue.java
+    Entity for the Venue
     Author: Mawande Langa (219074054)
     Date: 11/06/2021
 
