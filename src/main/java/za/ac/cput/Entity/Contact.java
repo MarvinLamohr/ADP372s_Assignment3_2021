@@ -7,28 +7,32 @@ package za.ac.cput.Entity;
 
 public class Contact {
 
-
-    private String cellNumber,workPhone,email;
+    private String id,cellNumber,workPhone,email;
 
     private  Contact(Builder builder){
-
-        this. cellNumber = builder.cellNumber;
+        this.id = builder.id;
+        this.cellNumber = builder.cellNumber;
         this.workPhone = builder.workPhone;
         this.email = builder.email;
 
     }
-
     @Override
     public String toString() {
         return "Contact{" +
-                "cellNumber='" + cellNumber + '\'' +
+                "id='" + id + '\'' +
+                ", cellNumber='" + cellNumber + '\'' +
                 ", workPhone='" + workPhone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+
     }
     public static class Builder{
-        private String cellNumber,workPhone,email;
+        private String id, cellNumber,workPhone,email;
 
+        public Builder setId(String Id) {
+            this.id = id;
+            return this;
+        }
         public Builder setCellNumber(String cellNumber) {
             this.cellNumber = cellNumber;
             return this;
@@ -51,6 +55,7 @@ public class Contact {
         }
 
         public Contact.Builder copy(Contact contact) {
+            this.id = contact.id;
             this.cellNumber = contact.cellNumber;
             this.workPhone = contact.workPhone;
             this.email = contact.email;
