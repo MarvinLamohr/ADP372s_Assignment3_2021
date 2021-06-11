@@ -7,13 +7,10 @@
 
 package za.ac.cput.Entity;
 
-import java.util.Date;
-
 public class Event {
 
-    private String eventName, eventID, guestList;
+    private String eventName, eventID, guestList,date;
     private int capacity;
-    private Date date;
 
     private Event(Builder builder){
 
@@ -36,10 +33,8 @@ public class Event {
 
     public static class Builder{
 
-        private String eventName, eventID, guestList;
+        private String eventName, eventID, guestList, date;
         private int capacity;
-        private Date date;
-        private double location;
 
         public Builder setEventName(String eventName) {
             this.eventName = eventName;
@@ -65,7 +60,7 @@ public class Event {
             return this;
         }
 
-        public Builder setDate(Date date) {
+        public Builder setDate(String date) {
             this.date = date;
 
             return this;

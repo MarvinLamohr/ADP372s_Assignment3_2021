@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class EventFactory {
 
-    public static Event createEvent(String eventName, String eventID, String guestList, int capacity, Date date){
+    public static Event createEvent(String eventName, String eventID, String guestList, int capacity, String date){
 
         String eventId = GenericHelper.generateId();
 
