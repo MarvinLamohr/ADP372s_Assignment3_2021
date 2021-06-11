@@ -3,7 +3,7 @@ package za.ac.cput.Entity;
 /*  Booking.java
  *  Entity for the booking
  *  Author: Ian Louw (216250773)
- *  Date: 7 June 2021
+ *  Date: 11 June 2021
  */
 
 public class Booking {
