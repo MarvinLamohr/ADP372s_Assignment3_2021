@@ -9,6 +9,12 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*  BookingFactoryTest.java
+ *  Test case for BookingFactory
+ *  Author: Ian Louw (216250773)
+ *  Date: 11 June 2021
+ */
+
 class BookingFactoryTest {
 
     private Booking booking1;
