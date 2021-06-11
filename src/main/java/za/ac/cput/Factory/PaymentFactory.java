@@ -1,5 +1,10 @@
 package za.ac.cput.Factory;
-
+/**
+ * PaymentFactory.java
+ *
+ *
+ * Mogamat Yaseen Levy - 218003323
+ */
 import za.ac.cput.Entity.Payment;
 
 public class PaymentFactory {

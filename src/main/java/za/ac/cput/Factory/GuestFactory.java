@@ -1,5 +1,10 @@
 package za.ac.cput.Factory;
-
+/**
+ * GuestFactory.java
+ *
+ *
+ * Mogamat Yaseen Levy - 218003323
+ */
 import za.ac.cput.Entity.Guest;
 
 public class GuestFactory {

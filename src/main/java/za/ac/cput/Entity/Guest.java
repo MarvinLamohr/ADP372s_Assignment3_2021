@@ -1,5 +1,10 @@
 package za.ac.cput.Entity;
-
+/**
+ * Guest.java
+ *
+ *
+ * Mogamat Yaseen Levy - 218003323
+ */
 public class Guest {
     private int guestAmount;
 
