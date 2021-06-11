@@ -6,12 +6,14 @@
 package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.Contact;
+import za.ac.cput.Util.GenericHelper;
 
 public class ContactFactory {
-    public static Contact createContact(String cellNumber, String workPhone, String email){
-        //String contactId = GenericHelper.generateId();
+    public static Contact createContact(String id,String cellNumber, String workPhone, String email){
+        String contactId = GenericHelper.generateId();
         Contact contact = new Contact.Builder()
-                //.setCellNumber(contactId)
+                .setId(contactId)
+                .setCellNumber(cellNumber)
                 .setWorkPhone(workPhone)
                 .setEmail(email)
                 .build();
