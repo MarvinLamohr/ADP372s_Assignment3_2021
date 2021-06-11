@@ -1,5 +1,10 @@
 package za.ac.cput.Entity;
-
+/**
+ * Payment.java
+ *
+ *
+ * Mogamat Yaseen Levy - 218003323
+ */
 public class Payment {
     private int amount;
 
