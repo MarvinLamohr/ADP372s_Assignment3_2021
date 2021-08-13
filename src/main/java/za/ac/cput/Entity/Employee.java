@@ -19,6 +19,25 @@ public class Employee {
         this.employeeAddress = builder.employeeAddress;
         this.position = builder.position;
     }
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public String getEmployeeID() {
+        return employeeID;
+    }
+
+    public String getEmployeeEmail() {
+        return employeeEmail;
+    }
+
+    public String getEmployeeAddress() {
+        return employeeAddress;
+    }
+
+    public String getPosition() {
+        return position;
+    }
 
     @Override
     public String toString() {

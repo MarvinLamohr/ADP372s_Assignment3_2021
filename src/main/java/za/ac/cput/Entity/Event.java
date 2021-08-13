@@ -20,6 +20,27 @@ public class Event {
         this.date = builder.date;
         this.guestList = builder.guestList;
 }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public String getEventID() {
+        return eventID;
+    }
+
+    public String getGuestList() {
+        return guestList;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
@@ -30,6 +51,7 @@ public class Event {
                 ", date=" + date +
                 '}';
     }
+
 
     public static class Builder{
 
