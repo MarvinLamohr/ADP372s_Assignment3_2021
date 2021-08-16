@@ -1,6 +1,7 @@
 package za.ac.cput.Factory;
 
 import za.ac.cput.Entity.Booking;
+import za.ac.cput.Util.GenericHelper;
 
 /*  BookingFactory.java
  *  Factory for the booking
@@ -12,7 +13,9 @@ public class BookingFactory {
 
     public static Booking createBooking(String name, String address, String database, String date, String status, Double price){
 
-        Booking booking = new Booking.Builder().
+        String bookingID = GenericHelper.generateId();
+        Booking booking = new Booking.Builder().setBookingID(bookingID).
+                                //setBookingID(bookingID).
                                 setName(name).
                                 setAddress(address).
                                 setDatabase(database).
