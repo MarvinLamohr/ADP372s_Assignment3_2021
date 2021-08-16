@@ -7,10 +7,13 @@ package za.ac.cput.Entity;
  */
 
 public class Booking {
-    private String name, address, database, date, status;
+    private String bookingID, name, address, database, date, status;
     private Double price;
 
+    private Booking() {};
+
     private Booking(Builder builder){
+        this.bookingID = builder.bookingID;
         this.name = builder.name;
         this.address = builder.address;
         this.database = builder.database;
@@ -19,10 +22,25 @@ public class Booking {
         this.status = builder.status;
     }
 
+    public String getBookingID(){return bookingID;}
+
+    public String getName() {return name;}
+
+    public String getAddress() {return address;}
+
+    public String getDate() {return date;}
+
+    public String getDatabase() {return database;}
+
+    public String getStatus() {return status;}
+
+    public Double getPrice() {return price;}
+
     @Override
     public String toString() {
         return "Booking{" +
-                "name='" + name + '\'' +
+                "booking ID" + bookingID + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", database='" + database + '\'' +
                 ", date='" + date + '\'' +
@@ -33,8 +51,14 @@ public class Booking {
 
     public static class Builder{
 
-        private String name, address, database, date, status;
+        private String bookingID, name, address, database, date, status;
         private Double price;
+
+        public Builder setBookingID(String bookingID){
+            this.bookingID = bookingID;
+
+            return this;
+        }
 
         public Builder setName(String name) {
             this.name = name;
@@ -78,6 +102,7 @@ public class Booking {
         }
 
         public Builder copy(Booking booking) {
+            this.bookingID = booking.bookingID;
             this.name = booking.name;
             this.address = booking.address;
             this.database = booking.database;
