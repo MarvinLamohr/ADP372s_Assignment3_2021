@@ -14,18 +14,18 @@ class EventRepositoryTest {
 
     private static EventRepository repository = EventRepository.getRepository();
 
-    private static Event event = EventFactory.createEvent( "SA Music Awards");
+    private static Event event = EventFactory.createEvent( "SA Music Awards","SAMusic 2022","500",1000,"16 June 2022");
 
     @Test
     void create() {
         Event created = repository.create(event);
-        assertEquals(created.getId(),event.getId());
+        assertEquals(created.getEventID(),event.getEventID());
         System.out.println("Create: "+ created);
     }
 
     @Test
     void read() {
-        Event read = repository.read(event.getId());
+        Event read = repository.read(event.getEventID());
         assertNotNull(read);
         System.out.println("Read: "+ read);
     }
@@ -36,9 +36,10 @@ class EventRepositoryTest {
         assertNotNull(repository.update(updated));
         System.out.println("Update: "+ updated);
     }
+
     @Test
     void delete() {
-        Event deleted = repository.delete(event.getId());
+        Event deleted = repository.delete(event.getEventID());
         assertNotNull(deleted);
         System.out.println("Delete: "+ deleted);
     }

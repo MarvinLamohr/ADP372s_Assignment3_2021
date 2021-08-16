@@ -34,7 +34,8 @@ private EmployeeRepository repository;
         return this.repository.update(employee);
     }
     @Override
-    public void delete(String employeeId) {
+    public boolean delete(String employeeId) {
         this.repository.delete(employeeId);
+        return false;
     }
 }

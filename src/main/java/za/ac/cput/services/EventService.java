@@ -34,7 +34,8 @@ private EventRepository repository;
         return this.repository.update(event);
     }
     @Override
-    public void delete(String eventId) {
+    public boolean delete(String eventId) {
         this.repository.delete(eventId);
+        return false;
     }
 }

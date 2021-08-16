@@ -14,18 +14,18 @@ class EmployeeRepositoryTest {
 
     private static EmployeeRepository repository = EmployeeRepository.getRepository();
 
-    private static Employee employee = EmployeeFactory.createEmployee( "Martin");
+    private static Employee employee = EmployeeFactory.createEmployee( "Martin","27 Plum Avenue Cape Town 7954","9090909223","martinRoberts@gmail.com","CEO");
 
     @Test
     void create() {
         Employee created = repository.create(employee);
-        assertEquals(created.getId(),employee.getId());
+        assertEquals(created.getEmployeeID(),employee.getEmployeeID());
         System.out.println("Create: "+ created);
     }
 
     @Test
     void read() {
-        Employee read = repository.read(employee.getId());
+        Employee read = repository.read(employee.getEmployeeID());
         assertNotNull(read);
         System.out.println("Read: "+ read);
     }
@@ -39,7 +39,7 @@ class EmployeeRepositoryTest {
 
     @Test
     void delete() {
-        Employee deleted = repository.delete(employee.getId());
+        Employee deleted = repository.delete(employee.getEmployeeID());
         assertNotNull(deleted);
         System.out.println("Delete: "+ deleted);
     }

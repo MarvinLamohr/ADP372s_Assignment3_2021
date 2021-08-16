@@ -1,5 +1,6 @@
 package za.ac.cput.repository.event.impl;
 
+import za.ac.cput.Entity.Employee;
 import za.ac.cput.Entity.Event;
 import za.ac.cput.repository.event.IEventRepository;
 
@@ -29,7 +30,7 @@ public class EventRepository implements IEventRepository {
     @Override
     public Event read(String eventId) {
         for(Event evt : eventDB)
-            if(evt.getId().equals(eventId)){
+            if(evt.getEventID().equals(eventId)){
                 return evt;
             }
         return null;
@@ -37,7 +38,7 @@ public class EventRepository implements IEventRepository {
 
     @Override
     public Event update(Event event) {
-        Event oldEvent = read(event.getId());
+        Event oldEvent = read(event.getEventID());
         if(oldEvent != null){
             eventDB.remove(oldEvent);
             eventDB.add(event);
@@ -47,11 +48,11 @@ public class EventRepository implements IEventRepository {
     }
 
     @Override
-    public void delete(String eventId) {
+    public Employee delete(String eventId) {
         Event eventToDelete = read(eventId);
         if(eventToDelete == null)
-            return;
+            return null;
         eventDB.remove(eventToDelete);
-        return;
+        return null;
     }
 }

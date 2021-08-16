@@ -29,7 +29,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     @Override
     public Employee read(String employeeId) {
         for(Employee emp : employeeDB)
-            if(emp.getId().equals(employeeId)){
+            if(emp.getEmployeeID().equals(employeeId)){
                 return emp;
             }
             return null;
@@ -37,7 +37,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public Employee update(Employee employee) {
-        Employee oldEmployee = read(employee.getId());
+        Employee oldEmployee = read(employee.getEmployeeID());
             if(oldEmployee != null){
                 employeeDB.remove(oldEmployee);
                 employeeDB.add(employee);
@@ -47,12 +47,12 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public void delete(String employeeId) {
+    public Employee delete(String employeeId) {
         Employee employeeToDelete = read(employeeId);
             if(employeeToDelete == null)
-            return;
+                return employeeToDelete;
             employeeDB.remove(employeeToDelete);
-            return;
+        return employeeToDelete;
     }
 
 }
