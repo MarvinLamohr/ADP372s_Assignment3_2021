@@ -10,6 +10,7 @@ package za.ac.cput.Entity;
 public class Customer {
 
     private String customerName;
+    private String customerID;
     private String address;
     private int age;
     private int contact;
@@ -17,15 +18,20 @@ public class Customer {
     private Customer(Builder builder){
 
         this.customerName = builder.customerName;
+        this.customerID = builder.customerID;
         this.address = builder.address;
         this.age = builder.age;
         this.contact = builder.contact;
+    }
+    public String getCustomerID() {
+        return customerID;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "customerName='" + customerName + '\'' +
+                "customerID='" + customerID + '\'' +
                 ", address='" + address + '\'' +
                 ", age=" + age +
                 ", contact=" + contact +
@@ -35,12 +41,18 @@ public class Customer {
     public static class Builder{
 
         private String customerName;
+        private String customerID;
         private String address;
         private int age;
         private int contact;
 
         public Builder setCustomerName(String customerName) {
             this.customerName = customerName;
+
+            return this;
+        }
+        public Builder setcustomerID(String customerID) {
+            this.customerID = customerID;
 
             return this;
         }
@@ -72,6 +84,7 @@ public class Customer {
         public Builder copy(Customer customer){
 
             this.customerName = customer.customerName;
+            this.customerID = customer.customerID;
             this.address = customer.address;
             this.age = customer.age;
             this.contact = customer.contact;

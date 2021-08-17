@@ -48,7 +48,7 @@ public class EventRepository implements IEventRepository {
     }
 
     @Override
-    public Employee delete(String eventId) {
+    public Event delete(String eventId) {
         Event eventToDelete = read(eventId);
         if(eventToDelete == null)
             return null;
