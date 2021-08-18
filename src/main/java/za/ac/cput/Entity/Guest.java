@@ -12,6 +12,14 @@ public class Guest {
         this.guestAmount = builder.guestAmount;
     }
 
+    public void setGuestAmount(int guestAmount) {
+        this.guestAmount = guestAmount;
+    }
+
+    public int getGuestAmount() {
+        return guestAmount;
+    }
+
     public static class Builder{
         private int guestAmount;
 
