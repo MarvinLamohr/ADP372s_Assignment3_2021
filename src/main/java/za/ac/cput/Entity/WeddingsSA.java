@@ -21,6 +21,9 @@ public class WeddingsSA {
     public String getCompanyName() {
         return companyName;
     }
+    public int getContact() {
+        return contact;
+    }
 
     @Override
     public String toString() {

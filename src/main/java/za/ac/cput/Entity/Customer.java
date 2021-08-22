@@ -26,6 +26,18 @@ public class Customer {
     public String getCustomerID() {
         return customerID;
     }
+    public String getCustomerName() {
+        return customerName;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public int getAge() {
+        return age;
+    }
+    public int getContact() {
+        return contact;
+    }
 
     @Override
     public String toString() {
