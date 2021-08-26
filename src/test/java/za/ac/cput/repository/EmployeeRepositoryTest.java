@@ -17,28 +17,28 @@ class EmployeeRepositoryTest {
     private static Employee employee = EmployeeFactory.createEmployee( "Martin","27 Plum Avenue Cape Town 7954","9090909223","martinRoberts@gmail.com","CEO");
 
     @Test
-    void create() {
+    void a_create() {
         Employee created = repository.create(employee);
         assertEquals(created.getEmployeeID(),employee.getEmployeeID());
         System.out.println("Create: "+ created);
     }
 
     @Test
-    void read() {
+    void b_read() {
         Employee read = repository.read(employee.getEmployeeID());
         assertNotNull(read);
         System.out.println("Read: "+ read);
     }
 
     @Test
-    void update() {
+    void c_update() {
         Employee updated = new Employee.Builder().copy(employee).setEmployeeName("Tony").build();
         assertNotNull(repository.update(updated));
         System.out.println("Update: "+ updated);
     }
 
     @Test
-    void delete() {
+    void d_delete() {
         boolean deleted = repository.delete(employee.getEmployeeID());
         assertNotNull(deleted);
         System.out.println("Delete: "+ deleted);
