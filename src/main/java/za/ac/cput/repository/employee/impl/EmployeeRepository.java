@@ -47,12 +47,12 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public Employee delete(String employeeId) {
+    public boolean delete(String employeeId) {
         Employee employeeToDelete = read(employeeId);
             if(employeeToDelete == null)
-                return employeeToDelete;
+                return false;
             employeeDB.remove(employeeToDelete);
-        return employeeToDelete;
+        return true;
     }
 
 }

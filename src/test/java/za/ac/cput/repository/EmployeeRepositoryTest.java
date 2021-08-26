@@ -39,7 +39,7 @@ class EmployeeRepositoryTest {
 
     @Test
     void delete() {
-        Employee deleted = repository.delete(employee.getEmployeeID());
+        boolean deleted = repository.delete(employee.getEmployeeID());
         assertNotNull(deleted);
         System.out.println("Delete: "+ deleted);
     }

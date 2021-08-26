@@ -39,7 +39,7 @@ class EventRepositoryTest {
 
     @Test
     void delete() {
-        Event deleted = repository.delete(event.getEventID());
+        boolean deleted = repository.delete(event.getEventID());
         assertNotNull(deleted);
         System.out.println("Delete: "+ deleted);
     }
