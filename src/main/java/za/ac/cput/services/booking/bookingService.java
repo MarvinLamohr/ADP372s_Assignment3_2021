@@ -2,7 +2,6 @@ package za.ac.cput.services.booking;
 
 import za.ac.cput.Entity.Booking;
 import za.ac.cput.repository.booking.BookingRepository;
-import za.ac.cput.services.EventService;
 
 import java.util.List;
 

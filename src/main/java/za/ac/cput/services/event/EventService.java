@@ -1,8 +1,7 @@
-package za.ac.cput.services;
+package za.ac.cput.services.event;
 
 import za.ac.cput.Entity.Event;
 import za.ac.cput.repository.event.impl.EventRepository;
-import za.ac.cput.services.event.IEventService;
 
 public class EventService implements IEventService {
 

@@ -3,6 +3,7 @@ package za.ac.cput.services;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Entity.Event;
 import za.ac.cput.Factory.EventFactory;
+import za.ac.cput.services.event.EventService;
 
 
 import static org.junit.jupiter.api.Assertions.*;

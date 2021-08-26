@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Entity.Event;
 import za.ac.cput.Factory.EventFactory;
-import za.ac.cput.services.EventService;
+import za.ac.cput.services.event.EventService;
 
 @RestController
 @RequestMapping()
