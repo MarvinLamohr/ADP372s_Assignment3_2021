@@ -1,8 +1,7 @@
-package za.ac.cput.services;
+package za.ac.cput.services.employee;
 
 import za.ac.cput.Entity.Employee;
 import za.ac.cput.repository.employee.impl.EmployeeRepository;
-import za.ac.cput.services.employee.IEmployeeService;
 
 public class EmployeeService implements IEmployeeService {
 

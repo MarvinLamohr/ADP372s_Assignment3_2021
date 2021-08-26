@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Entity.Employee;
 import za.ac.cput.Factory.EmployeeFactory;
-import za.ac.cput.services.EmployeeService;
+import za.ac.cput.services.employee.EmployeeService;
 
 @RestController
 @RequestMapping()
