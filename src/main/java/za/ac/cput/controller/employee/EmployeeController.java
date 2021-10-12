@@ -2,9 +2,12 @@ package za.ac.cput.controller.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.Entity.Employee;
-import za.ac.cput.Factory.EmployeeFactory;
+import za.ac.cput.entity.Booking;
+import za.ac.cput.entity.Employee;
+import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.services.employee.EmployeeService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping()
@@ -13,7 +16,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     public Employee create (Employee employee){
         Employee newEmployee = EmployeeFactory.createEmployee(employee.getEmployeeName(),
                                                               employee.getEmployeeID(),
@@ -33,7 +36,7 @@ public class EmployeeController {
         return employeeService.update(employee);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public String delete(@RequestBody Employee employee){
         if(employeeService.delete(employee.getEmployeeID()))
             return "Employee Successfully Deleted";
@@ -42,4 +45,7 @@ public class EmployeeController {
             return "Employee Could Not Be Deleted";
 
     }
+    @GetMapping("/getall")
+    public List<Employee> getAll(){ return employeeService.getAll(); }
+
 }

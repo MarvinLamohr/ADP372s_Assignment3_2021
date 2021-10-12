@@ -3,8 +3,8 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.Entity.Event;
-import za.ac.cput.Factory.EventFactory;
+import za.ac.cput.entity.Event;
+import za.ac.cput.factory.EventFactory;
 import za.ac.cput.repository.event.impl.EventRepository;
 
 import static org.junit.jupiter.api.Assertions.*;

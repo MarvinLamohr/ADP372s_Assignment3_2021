@@ -2,8 +2,8 @@ package za.ac.cput.controller.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.Factory.BookingFactory;
-import za.ac.cput.Entity.Booking;
+import za.ac.cput.factory.BookingFactory;
+import za.ac.cput.entity.Booking;
 import za.ac.cput.services.booking.bookingService;
 
 import java.util.List;

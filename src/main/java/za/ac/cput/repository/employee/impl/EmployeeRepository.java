@@ -1,6 +1,6 @@
 package za.ac.cput.repository.employee.impl;
 
-import za.ac.cput.Entity.Employee;
+import za.ac.cput.entity.Employee;
 import za.ac.cput.repository.employee.IEmployeeRepository;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 public class EmployeeRepository implements IEmployeeRepository {
 
     private static EmployeeRepository repository = null;
-    private List<Employee> employeeDB = null;
+    private List<Employee> employeeDB;
     private EmployeeRepository(){
         employeeDB = new ArrayList<Employee>();
     }
@@ -55,5 +55,8 @@ public class EmployeeRepository implements IEmployeeRepository {
         return true;
     }
 
+    public List<Employee> getAll(){
+        return employeeDB;
+    }
 }
 

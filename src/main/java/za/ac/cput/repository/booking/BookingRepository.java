@@ -1,7 +1,6 @@
 package za.ac.cput.repository.booking;
 
-import za.ac.cput.Entity.Booking;
-import za.ac.cput.Factory.BookingFactory;
+import za.ac.cput.entity.Booking;
 
 import java.util.ArrayList;
 import java.util.List;

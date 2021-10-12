@@ -1,8 +1,12 @@
 package za.ac.cput.services.employee;
 
-import za.ac.cput.Entity.Employee;
+import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Employee;
 import za.ac.cput.repository.employee.impl.EmployeeRepository;
 
+import java.util.List;
+
+@Service
 public class EmployeeService implements IEmployeeService {
 
 private static EmployeeService service;
@@ -23,6 +27,7 @@ private EmployeeRepository repository;
     public Employee create(Employee employee) {
         return this.repository.create(employee);
     }
+
     @Override
     public Employee read(String employeeId) {
         return this.repository.read(employeeId);
@@ -32,9 +37,14 @@ private EmployeeRepository repository;
     public Employee update(Employee employee) {
         return this.repository.update(employee);
     }
+
     @Override
     public boolean delete(String employeeId) {
         this.repository.delete(employeeId);
         return false;
+    }
+
+    public List<Employee> getAll() {
+        return this.repository.getAll();
     }
 }

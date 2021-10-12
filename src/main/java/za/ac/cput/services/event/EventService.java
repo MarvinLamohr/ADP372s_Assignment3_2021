@@ -1,8 +1,12 @@
 package za.ac.cput.services.event;
 
-import za.ac.cput.Entity.Event;
+import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Event;
 import za.ac.cput.repository.event.impl.EventRepository;
 
+import java.util.List;
+
+@Service
 public class EventService implements IEventService {
 
 private static EventService service;
@@ -23,6 +27,7 @@ private EventRepository repository;
     public Event create(Event event) {
         return this.repository.create(event);
     }
+
     @Override
     public Event read(String eventId) {
         return this.repository.read(eventId);
@@ -32,9 +37,14 @@ private EventRepository repository;
     public Event update(Event event) {
         return this.repository.update(event);
     }
+
     @Override
     public boolean delete(String eventId) {
         this.repository.delete(eventId);
         return false;
+    }
+
+    public List<Event> getAll() {
+        return this.repository.getAll();
     }
 }
