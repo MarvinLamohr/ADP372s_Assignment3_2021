@@ -50,7 +50,7 @@ public class GuestRepository implements IGuestRepository {
     }
 
     @Override
-    public Guest delete(Integer guestAmount) {
+    public boolean delete(Integer guestAmount) {
         Guest guestToDelete = read(guestAmount);
         if(guestToDelete == null)
             return null;

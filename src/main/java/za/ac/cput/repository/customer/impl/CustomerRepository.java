@@ -52,7 +52,7 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public Customer delete(String customerID) {
+    public boolean delete(String customerID) {
         Customer customerToDelete = read(customerID);
         if (customerToDelete == null)
             return null;

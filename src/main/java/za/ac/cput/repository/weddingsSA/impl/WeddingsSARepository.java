@@ -2,7 +2,6 @@ package za.ac.cput.repository.weddingsSA.impl;
 
 import za.ac.cput.Entity.Customer;
 import za.ac.cput.Entity.WeddingsSA;
-import za.ac.cput.repository.customer.impl.CustomerRepository;
 import za.ac.cput.repository.weddingsSA.IWeddingsSARepository;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class WeddingsSARepository  implements IWeddingsSARepository {
     }
 
     @Override
-    public WeddingsSA delete(String companyName) {
+    public boolean delete(String companyName) {
         WeddingsSA companyToDelete = read(companyName);
         if (companyToDelete == null)
             return null;

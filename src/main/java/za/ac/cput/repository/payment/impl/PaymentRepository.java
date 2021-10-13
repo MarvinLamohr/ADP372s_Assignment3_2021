@@ -50,7 +50,7 @@ public class PaymentRepository implements IPaymentRepository {
     }
 
     @Override
-    public Payment delete(Integer payAmount) {
+    public boolean delete(Integer payAmount) {
         Payment paymentToDelete = read(payAmount);
         if(paymentToDelete == null)
             return null;

@@ -9,7 +9,7 @@ import java.util.List;
 public class EventRepository implements IEventRepository {
 
     private static EventRepository repository = null;
-    private List<Event> eventDB;
+    private List<Event> eventDB = null;
     private EventRepository(){
         eventDB = new ArrayList<Event>();
     }
@@ -55,7 +55,8 @@ public class EventRepository implements IEventRepository {
         return true;
     }
 
-    public List<Event> getAll(){
+    @Override
+    public List<Event> getAll() {
         return eventDB;
     }
 }
