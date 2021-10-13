@@ -38,9 +38,15 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void d_delete() {
+    void e_delete() {
         boolean deleted = repository.delete(employee.getEmployeeID());
         assertNotNull(deleted);
         System.out.println("Delete: "+ deleted);
+    }
+
+    @Test
+    void d_getAll(){
+        System.out.println("Show all data: ");
+        System.out.println(repository.getAll());
     }
 }
