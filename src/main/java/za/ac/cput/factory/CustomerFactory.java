@@ -13,10 +13,11 @@ import za.ac.cput.entity.Customer;
 
 public class CustomerFactory{
 
-public static Customer createCustomer(String customerName, String address, int age, int contact){
+public static Customer createCustomer(String customerName,String customerID, String address, int age, int contact){
 
     Customer customer = new Customer.Builder()
                         .setCustomerName(customerName)
+                        .setcustomerID(customerID)
                         .setAddress(address)
                         .setAge(age)
                         .setContact(contact)

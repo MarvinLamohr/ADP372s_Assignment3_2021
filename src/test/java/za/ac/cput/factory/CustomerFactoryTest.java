@@ -25,7 +25,7 @@ class CustomerFactoryTest {
 
     @BeforeEach
     void setUp() {
-         customer1 = CustomerFactory.createCustomer("John", "8 Browning rd , Salt River" , 25 , 999999999);
+         customer1 = CustomerFactory.createCustomer("John", "111" , "8 Browning rd , Salt River" , 25 , 999999999);
         customer2 =  customer1;
 
     }

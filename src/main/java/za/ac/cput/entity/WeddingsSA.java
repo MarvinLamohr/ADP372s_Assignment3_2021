@@ -18,6 +18,13 @@ public class WeddingsSA {
         this.contact = builder.contact;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+    public int getContact() {
+        return contact;
+    }
+
     @Override
     public String toString() {
         return "WeddingsSA{" +
