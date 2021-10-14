@@ -34,9 +34,15 @@ class EmployeeServiceTest {
     }
 
     @Test
-    void d_delete() {
+    void e_delete() {
         boolean success = service.delete(employee.getEmployeeID());
         assertTrue(success);
         System.out.println("Deleted: " +success);
+    }
+
+    @Test
+    void d_getAll(){
+        System.out.println("Show all data: ");
+        System.out.println(service.getAll());
     }
 }
