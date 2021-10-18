@@ -1,60 +1,10 @@
 package za.ac.cput.repository.weddingsSA.impl;
 
-import za.ac.cput.Entity.Customer;
-import za.ac.cput.Entity.WeddingsSA;
-import za.ac.cput.repository.weddingsSA.IWeddingsSARepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import za.ac.cput.entity.WeddingsSA;
 
-public class WeddingsSARepository  implements IWeddingsSARepository {
-
-    private static WeddingsSARepository repository = null;
-    private List<WeddingsSA> WeddingsSADB = null;
-
-    private WeddingsSARepository() {
-        WeddingsSADB = new ArrayList<>();
-    }
-
-    public static WeddingsSARepository getRepository() {
-        if (repository == null) {
-            repository = new WeddingsSARepository();
-        }
-        return repository;
-    }
+public interface WeddingsSARepository   extends JpaRepository<WeddingsSA, String> {
 
 
-    @Override
-    public WeddingsSA create(WeddingsSA weddingsSA) {
-        this.WeddingsSADB.add(weddingsSA);
-        return null;
-    }
-
-    @Override
-    public WeddingsSA read(String companyName) {
-        for (WeddingsSA wed : WeddingsSADB) {
-            if (wed.getCompanyName().equals(companyName)) {
-                return wed;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public WeddingsSA update(WeddingsSA weddingsSA) {
-        WeddingsSA AnotherCompany = read(weddingsSA.getCompanyName());
-        if (AnotherCompany != null) {
-            WeddingsSADB.remove(AnotherCompany);
-            WeddingsSADB.add(weddingsSA);
-        }return null;
-    }
-
-    @Override
-    public boolean delete(String companyName) {
-        WeddingsSA companyToDelete = read(companyName);
-        if (companyToDelete == null)
-            return null;
-        WeddingsSADB.remove(companyToDelete);
-        return null;
-    }
 }

@@ -1,41 +1,57 @@
 package za.ac.cput.services.weddingsSA;
 
-import za.ac.cput.Entity.WeddingsSA;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Customer;
+import za.ac.cput.entity.WeddingsSA;
 import za.ac.cput.repository.weddingsSA.impl.WeddingsSARepository;
 
-public class WeddingsSAService {
+import java.util.List;
+import java.util.stream.Collectors;
 
-    private static WeddingsSAService service;
+@Service
+public class WeddingsSAService implements IWeddingSAService{
+
+    private static WeddingsSAService service= null;
+
+    @Autowired
     private WeddingsSARepository repository;
 
 
-    private WeddingsSAService() {
-        this.repository = WeddingsSARepository.getRepository();
-    }
-
     public static WeddingsSAService getService() {
-        if (service == null) {
+
+        if (service == null)
+        {
             service = new WeddingsSAService();
         }
         return service;
     }
 
     public WeddingsSA create(WeddingsSA weddingsSA) {
-        return this.repository.create(weddingsSA);
+        return this.repository.save(weddingsSA);
     }
 
     public WeddingsSA read(String companyName) {
-        return this.repository.read(companyName);
+        return this.repository.findById(companyName).orElse(null);
     }
 
 
     public WeddingsSA update(WeddingsSA weddingsSA) {
-        return this.repository.update(weddingsSA);
+        if(this.repository.existsById(weddingsSA.getCompanyName()))
+            return this.repository.save(weddingsSA);
+        return null;
     }
 
     public boolean delete(String companyName) {
-        this.repository.delete(companyName);
-        return false;
+
+        this.repository.deleteById(companyName);
+        if(this.repository.existsById(companyName))
+            return false;
+        else
+            return true;
     }
+
+    @Override
+    public List<WeddingsSA> getAll(){return this.repository.findAll().stream().collect(Collectors.toList());}
 }
 

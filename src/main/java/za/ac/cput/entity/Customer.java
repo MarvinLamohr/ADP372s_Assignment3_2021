@@ -1,5 +1,8 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Customer.java
  * This is an Entity for Customer
@@ -7,10 +10,12 @@ package za.ac.cput.entity;
  * Lefu Kumeke - 218147856
  */
 
-public class Customer {
+@Entity
+public class  Customer {
 
-    private String customerName;
+   @Id
     private String customerID;
+    private String customerName;
     private String address;
     private int age;
     private int contact;
@@ -23,6 +28,11 @@ public class Customer {
         this.age = builder.age;
         this.contact = builder.contact;
     }
+
+    public Customer() {
+
+    }
+
     public String getCustomerID() {
         return customerID;
     }

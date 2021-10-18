@@ -1,14 +1,18 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * WeddingsSA.java
  * This is an Entity for WeddingsSA
  *
  * Lefu Kumeke - 218147856
  */
-
+@Entity
 public class WeddingsSA {
 
+@Id
     private String companyName;
     private int contact;
 
@@ -16,6 +20,10 @@ public class WeddingsSA {
 
         this.companyName = builder.companyName;
         this.contact = builder.contact;
+    }
+
+    public WeddingsSA() {
+
     }
 
     public String getCompanyName() {

@@ -1,10 +1,10 @@
 package za.ac.cput.services;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Entity.Customer;
-import za.ac.cput.Entity.Employee;
-import za.ac.cput.Entity.Guest;
-import za.ac.cput.Factory.CustomerFactory;
+import za.ac.cput.entity.Customer;
+import za.ac.cput.entity.Employee;
+import za.ac.cput.entity.Guest;
+import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.services.customer.CustomerService;
 
 import static org.junit.jupiter.api.Assertions.*;

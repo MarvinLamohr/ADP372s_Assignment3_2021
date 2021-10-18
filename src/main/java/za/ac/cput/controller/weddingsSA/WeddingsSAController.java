@@ -2,8 +2,8 @@ package za.ac.cput.controller.weddingsSA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.Entity.WeddingsSA;
-import za.ac.cput.Factory.WeddingsSAFactory;
+import za.ac.cput.entity.WeddingsSA;
+import za.ac.cput.factory.WeddingsSAFactory;
 import za.ac.cput.services.weddingsSA.WeddingsSAService;
 
 @RestController
@@ -12,7 +12,6 @@ import za.ac.cput.services.weddingsSA.WeddingsSAService;
 public class WeddingsSAController {
 
     @Autowired
-
     private WeddingsSAService weddingsSAService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
