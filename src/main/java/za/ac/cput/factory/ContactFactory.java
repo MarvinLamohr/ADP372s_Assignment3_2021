@@ -9,7 +9,7 @@ import za.ac.cput.entity.Contact;
 import za.ac.cput.util.GenericHelper;
 
 public class ContactFactory {
-    public static Contact createContact(String id,String cellNumber, String workPhone, String email){
+    public static Contact createContact( String cellNumber, String workPhone, String email){
         String contactId = GenericHelper.generateId();
         Contact contact = new Contact.Builder()
                 .setId(contactId)
