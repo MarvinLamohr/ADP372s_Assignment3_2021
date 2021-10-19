@@ -5,33 +5,69 @@
  */
 package za.ac.cput.entity;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
 public class Couple {
+@Id
+    private String coupleId;
+    private String coupleSurname;
+    private String address;
+    private String gender;
+    private String age;
 
-    private String coupleSurname,address, gender;
-    private int age;
-
-
+private Couple(){}
 
     private  Couple(Couple.Builder builder){
-
+        this. coupleId = builder.build().coupleId;
         this. coupleSurname = builder.coupleSurname;
         this.address = builder.address;
         this.gender= builder.gender;
         this.age = builder.age;
     }
+
     @Override
     public String toString() {
         return "Couple{" +
+                "coupleId='" + coupleId + '\'' +
                 "coupleSurname='" + coupleSurname + '\'' +
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
                 '}';
     }
-    public static class Builder {
-        private String coupleSurname, address, gender;
-        private int age;
 
+    public String getCoupleId() {
+        return coupleId;
+    }
+
+    public String getCoupleSurname() {
+        return coupleSurname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public static class Builder {
+        private String coupleId,coupleSurname, address, gender;
+        private String age;
+
+        public Builder setCoupleId(String coupleId) {
+            this.coupleId = coupleId;
+            return this;
+        }
         public Builder setCoupleSurname(String coupleSurname) {
             this.coupleSurname = coupleSurname;
             return this;
@@ -47,7 +83,7 @@ public class Couple {
             return this;
         }
 
-        public Builder setAge(int age) {
+        public Builder setAge(String age) {
             this.age = age;
             return this;
         }
@@ -59,6 +95,7 @@ public class Couple {
         }
 
         public Couple.Builder copy(Couple couple) {
+            this.coupleId = couple.coupleId;
             this.coupleSurname = couple.coupleSurname;
             this.address = couple.address;
             this.gender = couple.gender;
