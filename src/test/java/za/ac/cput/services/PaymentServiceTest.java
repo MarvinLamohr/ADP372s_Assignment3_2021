@@ -1,8 +1,9 @@
 package za.ac.cput.services;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Entity.Payment;
-import za.ac.cput.Factory.PaymentFactory;
+import za.ac.cput.entity.Payment;
+import za.ac.cput.factory.PaymentFactory;
+import za.ac.cput.services.payment.PaymentService;
 
 import static org.junit.jupiter.api.Assertions.*;
 

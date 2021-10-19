@@ -2,9 +2,10 @@ package za.ac.cput.controller.guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.Entity.Guest;
-import za.ac.cput.Factory.GuestFactory;
-import za.ac.cput.services.GuestService;
+import za.ac.cput.entity.Guest;
+
+import za.ac.cput.factory.GuestFactory;
+import za.ac.cput.services.guest.GuestService;
 
 @RestController
 @RequestMapping
