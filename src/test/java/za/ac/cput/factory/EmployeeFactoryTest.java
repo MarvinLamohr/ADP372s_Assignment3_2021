@@ -22,12 +22,15 @@ class EmployeeFactoryTest {
 
     @BeforeEach
     void setUp(){
-        Employee employee1 = new Employee.Builder().setEmployeeID("").
-              setEmployeeName("").
-              setPosition("").
-              setEmployeeAddress("").
-              setEmployeeEmail("").
-              build();
+        Employee employee1 = new Employee.Builder().
+                setEmployeeFirstName("").
+                setEmployeeLastName("").
+                setEmployeeID("").
+                setEmployeeContactNumber("").
+                setEmployeeAddress("").
+                setEmployeeEmail("").
+                setPosition("").
+                build();
         Employee employee2 = employee1;
     }
 

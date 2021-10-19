@@ -13,15 +13,13 @@ import za.ac.cput.util.GenericHelper;
 
 public class EventFactory {
 
-    public static Event createEvent(String eventName, String eventID, String guestList, int capacity, String date){
+    public static Event createEvent(String eventName, String eventID, String date){
 
         String eventId = GenericHelper.generateId();
 
         Event event = new Event.Builder().
                           setEventName(eventName).
                           setEventID(eventID).
-                          setGuestList(guestList).
-                          setCapacity(capacity).
                           setDate(date).
                           build();
 

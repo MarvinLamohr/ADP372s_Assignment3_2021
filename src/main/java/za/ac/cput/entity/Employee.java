@@ -8,34 +8,51 @@
 package za.ac.cput.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Employee {
 
-    private String employeeName, employeeID, employeeEmail, employeeAddress,position;
+    private String employeeFirstName;
+    private String employeeLastName;
+    @Id
+    private String employeeID;
+    private String employeeContactNumber;
+    private String employeeAddress;
+    private String employeeEmail;
+    private String position;
 
     private Employee(Employee.Builder builder){
 
+        this.employeeFirstName = builder.employeeFirstName;
+        this.employeeLastName = builder.employeeLastName;
         this.employeeID = builder.employeeID;
-        this.employeeName = builder.employeeName;
-        this.employeeEmail = builder.employeeEmail;
+        this.employeeContactNumber = builder.employeeContactNumber;
         this.employeeAddress = builder.employeeAddress;
+        this.employeeEmail = builder.employeeEmail;
         this.position = builder.position;
     }
-    public String getEmployeeName() {
-        return employeeName;
+    public String getEmployeeFirstName() {
+        return employeeFirstName;
+    }
+
+    public String getEmployeeLastName() {
+        return employeeLastName;
     }
 
     public String getEmployeeID() {
         return employeeID;
     }
 
-    public String getEmployeeEmail() {
-        return employeeEmail;
+    public String getEmployeeContactNumber() {
+        return employeeContactNumber;
     }
-
     public String getEmployeeAddress() {
         return employeeAddress;
+    }
+
+    public String getEmployeeEmail() {
+        return employeeEmail;
     }
 
     public String getPosition() {
@@ -45,20 +62,28 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "employeeName='" + employeeName + '\'' +
+                "employeeFirstName='" + employeeFirstName + '\'' +
+                ", employeeLastName='" + employeeLastName + '\'' +
                 ", employeeID='" + employeeID + '\'' +
-                ", employeeEmail='" + employeeEmail + '\'' +
+                ", employeeContactNumber='" + employeeContactNumber + '\'' +
                 ", employeeAddress='" + employeeAddress + '\'' +
+                ", employeeEmail='" + employeeEmail + '\'' +
                 ", position='" + position + '\'' +
                 '}';
     }
 
     public static class Builder{
 
-        private String employeeName, employeeID, employeeEmail, employeeAddress, position;
+        private String employeeFirstName, employeeLastName, employeeID, employeeContactNumber, employeeAddress, employeeEmail, position;
 
-        public Employee.Builder setEmployeeName(String employeeName) {
-            this.employeeName = employeeName;
+        public Employee.Builder setEmployeeFirstName(String employeeFirstName) {
+            this.employeeFirstName = employeeFirstName;
+
+            return this;
+        }
+
+        public Employee.Builder setEmployeeLastName(String employeeLastName) {
+            this.employeeLastName = employeeLastName;
 
             return this;
         }
@@ -69,14 +94,19 @@ public class Employee {
             return this;
         }
 
-        public Employee.Builder setEmployeeEmail(String employeeEmail) {
-            this.employeeEmail = employeeEmail;
+        public Employee.Builder setEmployeeContactNumber(String employeeContactNumber) {
+            this.employeeContactNumber = employeeContactNumber;
 
             return this;
         }
 
         public Employee.Builder setEmployeeAddress(String employeeAddress) {
             this.employeeAddress = employeeAddress;
+
+            return this;
+        }
+        public Employee.Builder setEmployeeEmail(String employeeEmail) {
+            this.employeeEmail = employeeEmail;
 
             return this;
         }
@@ -94,10 +124,12 @@ public class Employee {
         }
 
         public Employee.Builder copy(Employee employee){
-            this.employeeName = employee.employeeName;
+            this.employeeFirstName = employee.employeeFirstName;
+            this.employeeLastName = employee.employeeLastName;
             this.employeeID = employee.employeeID;
-            this.employeeEmail = employee.employeeEmail;
+            this.employeeContactNumber = employee.employeeContactNumber;
             this.employeeAddress = employee.employeeAddress;
+            this.employeeEmail = employee.employeeEmail;
             this.position = employee.position;
 
             return this;

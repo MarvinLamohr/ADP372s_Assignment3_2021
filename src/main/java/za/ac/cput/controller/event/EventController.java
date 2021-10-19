@@ -2,7 +2,6 @@ package za.ac.cput.controller.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.entity.Booking;
 import za.ac.cput.entity.Event;
 import za.ac.cput.factory.EventFactory;
 import za.ac.cput.services.event.EventService;
@@ -20,15 +19,13 @@ public class EventController {
     public Event create (@RequestBody Event event){
         Event newEvent = EventFactory.createEvent(event.getEventName(),
                                                   event.getEventID(),
-                                                  event.getDate(),
-                                                  event.getCapacity(),
-                                                  event.getGuestList());
+                                                  event.getDate());
         return eventService.create(newEvent);
     }
 
     @GetMapping("/read")
-    public Event read(@RequestBody Event event){
-        return eventService.read(event.getEventID());
+    public Event read(@PathVariable String id){
+        return eventService.read(id);
     }
 
     @PostMapping("/update")
@@ -37,8 +34,8 @@ public class EventController {
     }
 
     @DeleteMapping
-    public String delete(@RequestBody Event event){
-        if(eventService.delete(event.getEventID()))
+    public String delete(@PathVariable String id){
+        if(eventService.delete(id))
             return "Event Successfully Deleted";
 
         else

@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EmployeeControllerTest {
 
-    private static Employee employee = EmployeeFactory.createEmployee("Myles","10 Main Road Woodstock 7654","evens1234","mylesevens@gmail.com","Designer");
+    private static Employee employee = EmployeeFactory.createEmployee("Myles","Evans","evens1234","0735684025","10 Main Road Woodstock 7654","mylesevens@gmail.com","Designer");
 
     public static String SECURITY_USERNAME="xyz";
     public static String SECURITY_PASSWORD="123";

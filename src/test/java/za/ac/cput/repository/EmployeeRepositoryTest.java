@@ -14,7 +14,7 @@ class EmployeeRepositoryTest {
 
     private static EmployeeRepository repository = EmployeeRepository.getRepository();
 
-    private static Employee employee = EmployeeFactory.createEmployee( "Martin","27 Plum Avenue Cape Town 7954","9090909223","martinRoberts@gmail.com","CEO");
+    private static Employee employee = EmployeeFactory.createEmployee( "Martin","Williams","9090909223","0823267956","27 Plum Avenue Cape Town 7954", "martinRoberts@gmail.com", "CEO");
 
     @Test
     void a_create() {
@@ -32,7 +32,7 @@ class EmployeeRepositoryTest {
 
     @Test
     void c_update() {
-        Employee updated = new Employee.Builder().copy(employee).setEmployeeName("Tony").build();
+        Employee updated = new Employee.Builder().copy(employee).setEmployeeFirstName("Tony").build();
         assertNotNull(repository.update(updated));
         System.out.println("Update: "+ updated);
     }

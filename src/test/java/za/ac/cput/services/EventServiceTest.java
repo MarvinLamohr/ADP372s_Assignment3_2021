@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EventServiceTest {
 
     private static EventService service = EventService.getService();
-    private static Event event = EventFactory.createEvent("Lamohr Wedding","Lam2845","50",90,"23 September 2022");
+    private static Event event = EventFactory.createEvent("Lamohr Wedding","Lam2845","2022/09/23");
 
     @Test
     void a_create() {

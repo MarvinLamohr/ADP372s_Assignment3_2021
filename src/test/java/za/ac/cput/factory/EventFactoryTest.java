@@ -22,11 +22,10 @@ class EventFactoryTest {
 
     @BeforeEach
     void setUp(){
-        Event event1 = new Event.Builder().setEventID("").
+        Event event1 = new Event.Builder().
+                setEventID("").
                 setEventName("").
                 setDate("").
-                setCapacity(50).
-                setGuestList("").
                 build();
         Event event2 = event1;
     }

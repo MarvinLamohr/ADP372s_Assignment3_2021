@@ -12,14 +12,16 @@ import za.ac.cput.util.GenericHelper;
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee(String employeeName, String employeeAddress, String employeeID, String employeeEmail, String position){
+    public static Employee createEmployee(String employeeFirstName, String employeeLastName, String employeeID, String employeeContactNumber, String employeeAddress, String employeeEmail, String position){
 
         String employeeId = GenericHelper.generateId();
 
         Employee employee = new Employee.Builder().
-                                setEmployeeName(employeeName).
-                                setEmployeeAddress(employeeAddress).
+                                setEmployeeFirstName(employeeFirstName).
+                                setEmployeeLastName(employeeLastName).
                                 setEmployeeID(employeeID).
+                                setEmployeeContactNumber(employeeContactNumber).
+                                setEmployeeAddress(employeeAddress).
                                 setEmployeeEmail(employeeEmail).
                                 setPosition(position).
                                 build();

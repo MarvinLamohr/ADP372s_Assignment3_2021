@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EventControllerTest {
 
-    private static Event event = EventFactory.createEvent("Lamohr Wedding","LamW2021","100",200,"2021/08/25");
+    private static Event event = EventFactory.createEvent("Lamohr Wedding","LamW2021","2021/08/25");
 
     public static String SECURITY_USERNAME="xyz";
     public static String SECURITY_PASSWORD="123";
@@ -51,7 +51,7 @@ class EventControllerTest {
 
     @Test
     void c_update() {
-        Event updated = new Event.Builder().copy(event).setGuestList("150").build();
+        Event updated = new Event.Builder().copy(event).setDate("2021/09/24").build();
         String url = BASE_URL + "/update";
         System.out.println("URL: "+ url);
         System.out.println("Post data: " + updated);

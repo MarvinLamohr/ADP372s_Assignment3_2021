@@ -14,7 +14,7 @@ class EventRepositoryTest {
 
     private static EventRepository repository = EventRepository.getRepository();
 
-    private static Event event = EventFactory.createEvent( "SA Music Awards","SAMusic 2022","500",1000,"16 June 2022");
+    private static Event event = EventFactory.createEvent( "SA Music Awards","SAMusic 2022","2022/06/22");
 
     @Test
     void a_create() {

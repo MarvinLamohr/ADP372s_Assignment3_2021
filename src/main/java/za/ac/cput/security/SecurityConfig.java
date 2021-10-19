@@ -1,5 +1,6 @@
 package za.ac.cput.security;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -31,12 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"**/create").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"**/getall").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/ADP372s_Assignment3_2021/**/getall").hasRole("USER")
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
     }
 
+    @Bean
     public PasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }

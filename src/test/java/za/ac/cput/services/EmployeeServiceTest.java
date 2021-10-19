@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeServiceTest {
 
     private static EmployeeService service = EmployeeService.getService();
-    private static Employee employee = EmployeeFactory.createEmployee("Cyril","90 Plein Street Cape Town 8000","Pres2017SA","CyrilRamaphosaSA@outlook.com","President");
+    private static Employee employee = EmployeeFactory.createEmployee("Cyril","Ramaphosa","Pres2017SA","0214278359","90 Plein Street Cape Town 8000","CyrilRamaphosaSA@outlook.com","President");
 
     @Test
     void a_create() {
@@ -28,7 +28,7 @@ class EmployeeServiceTest {
 
     @Test
     void c_update() {
-        Employee updated = new Employee.Builder().copy(employee).setEmployeeName("Robert").build();
+        Employee updated = new Employee.Builder().copy(employee).setEmployeeFirstName("Robert").build();
         assertNotNull(service.update(updated));
         System.out.println("Updated: " +updated);
     }
