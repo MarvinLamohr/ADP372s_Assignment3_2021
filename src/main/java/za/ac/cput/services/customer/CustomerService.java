@@ -1,40 +1,62 @@
 package za.ac.cput.services.customer;
 
-import za.ac.cput.Entity.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Customer;
 import za.ac.cput.repository.customer.impl.CustomerRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class CustomerService {
-    private static CustomerService service;
+@Service
+public class CustomerService implements ICustomerService {
+    private static CustomerService service= null;
+
+    @Autowired
     private CustomerRepository repository;
 
-
-    private CustomerService() {
-        this.repository = CustomerRepository.getRepository();
-    }
-
-    public static CustomerService getService() {
-        if (service == null) {
+    public static CustomerService getService()
+    {
+        if (service == null)
+        {
             service = new CustomerService();
         }
         return service;
     }
 
-    public Customer create(Customer customer) {
-        return this.repository.create(customer);
+    @Override
+    public Customer create(Customer customer)
+    {
+        return this.repository.save(customer);
     }
 
-    public Customer read(String customerID) {
-        return this.repository.read(customerID);
+    @Override
+    public Customer read(String customerID)
+    {
+        return this.repository.findById(customerID).orElse(null);
     }
 
-
-    public Customer update(Customer customer) {
-        return this.repository.update(customer);
+    @Override
+    public Customer update(Customer customer)
+    {
+        if(this.repository.existsById(customer.getCustomerID()))
+            return this.repository.save(customer);
+        return null;
     }
 
-    public boolean delete(String customerID) {
-        this.repository.delete(customerID);
-        return false;
+    @Override
+    public boolean delete(String customerID)
+    {
+        this.repository.deleteById(customerID);
+        if(this.repository.existsById(customerID))
+            return false;
+        else
+            return true;
     }
+
+    @Override
+    public List<Customer> getAll(){return this.repository.findAll().stream().collect(Collectors.toList());}
+
+
 }
+

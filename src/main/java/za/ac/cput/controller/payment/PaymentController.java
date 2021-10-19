@@ -2,9 +2,9 @@ package za.ac.cput.controller.payment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.Entity.Payment;
-import za.ac.cput.Factory.PaymentFactory;
-import za.ac.cput.services.PaymentService;
+import za.ac.cput.entity.Payment;
+import za.ac.cput.factory.PaymentFactory;
+import za.ac.cput.services.payment.PaymentService;
 
 @RestController
 @RequestMapping

@@ -1,8 +1,9 @@
 package za.ac.cput.services;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.Entity.Guest;
-import za.ac.cput.Factory.GuestFactory;
+import za.ac.cput.entity.Guest;
+import za.ac.cput.factory.GuestFactory;
+import za.ac.cput.services.guest.GuestService;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,15 +1,25 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Guest.java
  *
  *
  * Mogamat Yaseen Levy - 218003323
  */
+@Entity
 public class Guest {
+    @Id
     private int guestAmount;
 
     private Guest(Builder builder){
         this.guestAmount = builder.guestAmount;
+    }
+
+    public Guest() {
+
     }
 
     public void setGuestAmount(int guestAmount) {

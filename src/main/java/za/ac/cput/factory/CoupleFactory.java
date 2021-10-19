@@ -8,7 +8,7 @@ package za.ac.cput.factory;
 import za.ac.cput.entity.Couple;
 
 public class CoupleFactory {
-    public static Couple createCouple(String coupleSurname, String address, String gender, int age){
+    public static Couple createCouple(String coupleSurname, String address, String gender, String age){
         Couple couple = new Couple.Builder()
                 .setCoupleSurname(coupleSurname)
                 .setAddress(address)

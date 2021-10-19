@@ -5,9 +5,21 @@
  */
 package za.ac.cput.entity;
 
-public class Contact {
 
-    private String id,cellNumber,workPhone,email;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
+public class Contact implements Serializable {
+    @Id
+    private String id;
+    private String cellNumber;
+    private   String workPhone;
+    private String email;
+
+    private Contact(){}
 
     private  Contact(Builder builder){
         this.id = builder.id;
@@ -16,6 +28,7 @@ public class Contact {
         this.email = builder.email;
 
     }
+
     @Override
     public String toString() {
         return "Contact{" +
@@ -26,6 +39,22 @@ public class Contact {
                 '}';
 
     }
+    public String getId() {
+        return id;
+    }
+
+    public String getCellNumber() {
+        return cellNumber;
+    }
+
+    public String getWorkphone() {
+        return workPhone;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+
     public static class Builder{
         private String id, cellNumber,workPhone,email;
 

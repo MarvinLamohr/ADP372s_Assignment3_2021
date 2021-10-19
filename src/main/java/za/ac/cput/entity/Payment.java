@@ -1,12 +1,30 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Payment.java
  *
  *
  * Mogamat Yaseen Levy - 218003323
  */
+@Entity
 public class Payment {
+
+    @Id
     private int amount;
+
+    public Payment() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "amount=" + amount +
+                '}';
+    }
 
     public int getAmount() {
         return amount;
