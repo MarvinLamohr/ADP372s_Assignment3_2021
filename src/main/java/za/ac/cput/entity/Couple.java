@@ -5,21 +5,21 @@
  */
 package za.ac.cput.entity;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
 public class Couple {
-@Id
+
+    @Id
     private String coupleId;
     private String coupleSurname;
     private String address;
     private String gender;
     private String age;
 
-private Couple(){}
+
 
     private  Couple(Couple.Builder builder){
         this. coupleId = builder.build().coupleId;
@@ -27,6 +27,10 @@ private Couple(){}
         this.address = builder.address;
         this.gender= builder.gender;
         this.age = builder.age;
+    }
+
+    public Couple() {
+
     }
 
     @Override
