@@ -26,8 +26,9 @@ public class bookingService implements IBookingService{
         return this.repository.save(booking);
     }
 
-    public void delete (String booking) {
+    public boolean delete (String booking) {
         this.repository.deleteById(booking);
+        return false;
     }
 
     public List<Booking> getAll() {

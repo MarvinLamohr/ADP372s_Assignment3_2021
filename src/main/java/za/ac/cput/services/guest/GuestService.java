@@ -39,8 +39,9 @@ public class GuestService implements IGuestService {
         return null;
     }
     @Override
-    public void delete(Integer amount) {
+    public boolean delete(Integer amount) {
         this.repository.deleteById(amount);
+        return false;
     }
 
    // @Override

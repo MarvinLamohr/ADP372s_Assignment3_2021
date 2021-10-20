@@ -30,8 +30,9 @@ private EmployeeRepository employeeRepository;
     }
 
     @Override
-    public void delete(String employee) {
+    public boolean delete(String employee) {
         this.employeeRepository.deleteById(employee);
+        return false;
     }
 
     public List<Employee> getAll() {

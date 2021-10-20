@@ -3,8 +3,9 @@ package za.ac.cput.services.contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Contact;
+import za.ac.cput.entity.Couple;
 import za.ac.cput.repository.contact.ContactRepository;
-import za.ac.cput.services.contact.IContactService;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 @Service
@@ -31,13 +32,15 @@ public class ContactService implements IContactService {
             return this.repository.save(contact);
         return null;
     }
-
     @Override
-    public void delete(String contactId) {
-        this.repository.deleteById(contactId);
+    public boolean delete(String coupleId) {
+        this.repository.deleteById(coupleId);
+        return false;
     }
-    @Override
+
     public Set<Contact> getAll() {
+
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
+

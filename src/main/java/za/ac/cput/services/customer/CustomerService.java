@@ -33,9 +33,10 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void delete(String customerID)
+    public boolean delete(String customerID)
     {
         this.customerRepository.deleteById(customerID);
+        return false;
     }
 
     @Override

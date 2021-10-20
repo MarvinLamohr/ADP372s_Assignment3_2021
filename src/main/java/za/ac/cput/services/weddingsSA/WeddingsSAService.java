@@ -2,7 +2,6 @@ package za.ac.cput.services.weddingsSA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.entity.Customer;
 import za.ac.cput.entity.WeddingsSA;
 import za.ac.cput.repository.weddingsSA.impl.WeddingsSARepository;
 
@@ -31,8 +30,9 @@ public class WeddingsSAService implements IWeddingSAService{
         return this.weddingsSARepository.save(weddingsSA);
     }
 
-    public void delete(String companyName) {
+    public boolean delete(String companyName) {
         this.weddingsSARepository.deleteById(companyName);
+        return false;
     }
 
     @Override

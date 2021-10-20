@@ -32,8 +32,9 @@ public class CoupleService implements ICoupleService {
         return null;
     }
     @Override
-    public void delete(String coupleId) {
+    public boolean delete(String coupleId) {
         this.coupleRepository.deleteById(coupleId);
+        return false;
     }
 
     public Set<Couple> getAll() {
