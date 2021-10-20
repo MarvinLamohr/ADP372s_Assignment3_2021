@@ -1,44 +1,36 @@
 package za.ac.cput.services.booking;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Booking;
-import za.ac.cput.repository.booking.BookingRepository;
+import za.ac.cput.repository.booking.IBookingRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class bookingService {
+@Service
+public class bookingService implements IBookingService{
 
-    private static bookingService service;
-    private BookingRepository repository;
-
-    private bookingService() {
-        this.repository = BookingRepository.getRepository();
-    }
-
-    public static bookingService getService() {
-        if(service == null) {
-            service = new bookingService();
-        }
-        return service;
-    }
-
+    @Autowired
+    private IBookingRepository repository;
 
     public Booking create (Booking booking) {
-        return this.repository.create(booking);
+        return this.repository.save(booking);
     }
 
-    public Booking read (String bookingID) {
-        return this.repository.read(bookingID);
+    public Booking read (String booking) {
+        return this.repository.findById(booking).orElseGet(null);
     }
 
     public Booking update (Booking booking) {
-        return this.repository.update(booking);
+        return this.repository.save(booking);
     }
 
-    public boolean delete (String bookingID) {
-        return this.repository.delete(bookingID);
+    public void delete (String booking) {
+        this.repository.deleteById(booking);
     }
 
     public List<Booking> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toList());
     }
 }
