@@ -18,26 +18,28 @@ public class BookingController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     //@PostMapping("/booking")
     public Booking create(@RequestBody Booking booking) {
-        Booking newBooking = BookingFactory.createBooking(booking.getName(), booking.getAddress(), booking.getDatabase(), booking.getDate(), booking.getStatus(), booking.getPrice());
+        Booking newBooking = BookingFactory.createBooking(  booking.getName(),
+                                                            booking.getAddress(),
+                                                            booking.getDatabase(),
+                                                            booking.getDate(),
+                                                            booking.getStatus(),
+                                                            booking.getPrice());
         return bookingService.create(newBooking);
     }
 
-    @GetMapping("/read")
-    public Booking read (@RequestBody Booking booking) {
-        return bookingService.read(booking.getBookingID());
+    @GetMapping("/read/{id}")
+    public Booking read (@PathVariable String id) {
+        return bookingService.read(id);
     }
 
-    @PostMapping("/update")
-    public Booking update (@RequestBody Booking booking){
-        return bookingService.update(booking);
+    @PutMapping ("/update")
+    public void update (@RequestBody Booking booking){
+        bookingService.update(booking);
     }
 
-    @PostMapping("/delete")
-    public String delete (@RequestBody Booking booking) {
-        if (bookingService.delete(booking.getBookingID()))
-            return "deleted successfully";
-        else
-            return "could not delete";
+    @DeleteMapping("/delete/{id}")
+    public void delete (@PathVariable String id) {
+        bookingService.delete(id);
     }
 
     @GetMapping("/getall")

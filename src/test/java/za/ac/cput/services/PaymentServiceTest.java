@@ -36,8 +36,8 @@ class PaymentServiceTest {
 
     @Test
     void delete() {
-        boolean success = service.delete(payment.getAmount());
-        assertTrue(success);
-        System.out.println("Deleted: " +success);
+         service.delete(payment.getAmount());
+        assertNotNull(service);
+        System.out.println("Deleted: " +service.getAll());
     }
 }

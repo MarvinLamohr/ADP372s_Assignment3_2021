@@ -2,9 +2,12 @@ package za.ac.cput.controller.weddingsSA;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.entity.Employee;
 import za.ac.cput.entity.WeddingsSA;
 import za.ac.cput.factory.WeddingsSAFactory;
 import za.ac.cput.services.weddingsSA.WeddingsSAService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping
@@ -28,8 +31,12 @@ public class WeddingsSAController {
             }
 
             @PostMapping
-                public void delete(@RequestBody WeddingsSA weddingsSA){
-             weddingsSAService.delete(weddingsSA.getCompanyName());
+                public void delete(@RequestBody WeddingsSA weddingsSA) {
+                weddingsSAService.delete(weddingsSA.getCompanyName());
+            }
 
-    }
+                @GetMapping("/getall")
+                public List<WeddingsSA> getAll(){ return weddingsSAService.getAll();}
+
+
 }

@@ -35,8 +35,8 @@ class GuestServiceTest {
 
     @Test
     void delete() {
-        boolean success = service.delete(guest.getGuestAmount());
-        assertTrue(success);
-        System.out.println("Deleted: " +success);
+        service.delete(guest.getGuestAmount());
+        assertNotNull(service);
+        System.out.println("Deleted: " +service.getAll());
     }
 }
