@@ -6,6 +6,8 @@ import za.ac.cput.entity.Customer;
 import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.services.customer.CustomerService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping
 
@@ -36,4 +38,8 @@ public class CustomerController {
     public void delete(@RequestBody Customer customer){
         customerService.delete(customer.getCustomerID());
     }
+
+
+    @GetMapping("/getall")
+    public List<Customer> getAll(){ return customerService.getAll();}
 }
