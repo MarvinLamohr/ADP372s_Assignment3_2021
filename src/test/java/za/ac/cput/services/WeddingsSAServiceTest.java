@@ -11,20 +11,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WeddingsSAServiceTest {
 
-    private static WeddingsSAService service = WeddingsSAService.getService();
+    private static WeddingsSAService WeddingsSAService;
     private static WeddingsSA weddingsSA = WeddingsSAFactory.createWeddingsSA("Weddings SA", 763456789);
 
 
     @Test
     void create() {
-        WeddingsSA created = service.create(weddingsSA);
+        WeddingsSA created = WeddingsSAService.create(weddingsSA);
         assertEquals(created.getCompanyName(),weddingsSA.getCompanyName());
         System.out.println("Created: " +created);
     }
 
     @Test
     void read() {
-        WeddingsSA read = service.read(weddingsSA.getCompanyName());
+        WeddingsSA read = WeddingsSAService.read(weddingsSA.getCompanyName());
         assertNotNull(read);
         System.out.println("Read: " +read);
     }
@@ -32,15 +32,15 @@ public class WeddingsSAServiceTest {
     @Test
     void update() {
         WeddingsSA updated = new WeddingsSA.Builder().copy(weddingsSA).setCompanyName("Another").build();
-        assertNotNull(service.update(updated));
+        assertNotNull(WeddingsSAService.update(updated));
         System.out.println("Updated: " +updated);
     }
 
     @Test
     void delete() {
-        boolean success = service.delete(weddingsSA.getCompanyName());
-        assertTrue(success);
-        System.out.println("Deleted: " +success);
+        WeddingsSAService.delete(weddingsSA.getCompanyName());
+        assertNotNull(WeddingsSAService);
+        System.out.println("Deleted: " +WeddingsSAService.getAll());
     }
 }
 

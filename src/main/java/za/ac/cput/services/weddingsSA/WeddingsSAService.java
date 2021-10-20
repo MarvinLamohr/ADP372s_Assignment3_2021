@@ -12,42 +12,30 @@ import java.util.stream.Collectors;
 @Service
 public class WeddingsSAService implements IWeddingSAService{
 
-    private static WeddingsSAService service= null;
+
 
     @Autowired
-    private WeddingsSARepository repository;
+    public WeddingsSARepository weddingsSARepository;
 
-
-    public static WeddingsSAService getService() {
-
-        if (service == null)
-        {
-            service = new WeddingsSAService();
-        }
-        return service;
-    }
 
     public WeddingsSA create(WeddingsSA weddingsSA) {
-        return this.repository.save(weddingsSA);
+        return this.weddingsSARepository.save(weddingsSA);
     }
 
     public WeddingsSA read(String companyName) {
-        return this.repository.findById(companyName).orElse(null);
+        return this.weddingsSARepository.findById(companyName).orElse(null);
     }
 
 
     public WeddingsSA update(WeddingsSA weddingsSA) {
-        if(this.repository.existsById(weddingsSA.getCompanyName()))
-            return this.repository.save(weddingsSA);
-        return null;
+        return this.weddingsSARepository.save(weddingsSA);
     }
 
     public void delete(String companyName) {
-
-        this.repository.deleteById(companyName);
+        this.weddingsSARepository.deleteById(companyName);
     }
 
     @Override
-    public List<WeddingsSA> getAll(){return this.repository.findAll().stream().collect(Collectors.toList());}
+    public List<WeddingsSA> getAll(){return this.weddingsSARepository.findAll().stream().collect(Collectors.toList());}
 }
 

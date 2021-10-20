@@ -12,19 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CustomerServiceTest {
 
 
-    private static CustomerService service = CustomerService.getService();
+    private static CustomerService CustomerService;
     private static Customer customer = CustomerFactory.createCustomer("John", "111" , "8 Browning rd , Salt River" , 25 , 999999999);
 
     @Test
     void create() {
-        Customer created = service.create(customer);
+        Customer created = CustomerService.create(customer);
         assertEquals(created.getCustomerID(),customer.getCustomerID());
         System.out.println("Created: " +created);
     }
 
     @Test
     void read() {
-        Customer read = service.read(customer.getCustomerID());
+        Customer read = CustomerService.read(customer.getCustomerID());
         assertNotNull(read);
         System.out.println("Read: " +read);
     }
@@ -32,14 +32,14 @@ public class CustomerServiceTest {
     @Test
     void update() {
         Customer updated = new Customer.Builder().copy(customer).setCustomerName("Lefu").build();
-        assertNotNull(service.update(updated));
+        assertNotNull(CustomerService.update(updated));
         System.out.println("Updated: " + updated);
 
     }
         @Test
         void delete() {
-            boolean success = service.delete(customer.getCustomerID());
-            assertTrue(success);
-            System.out.println("Deleted: " + success);
+            CustomerService.delete(customer.getCustomerID());
+            assertNotNull(CustomerService);
+            System.out.println("Deleted: " + CustomerService);
 
         }}

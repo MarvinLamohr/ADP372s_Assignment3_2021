@@ -10,48 +10,36 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerService implements ICustomerService {
-    private static CustomerService service= null;
 
     @Autowired
-    private CustomerRepository repository;
-
-    public static CustomerService getService()
-    {
-        if (service == null)
-        {
-            service = new CustomerService();
-        }
-        return service;
-    }
+    private CustomerRepository customerRepository;
 
     @Override
     public Customer create(Customer customer)
     {
-        return this.repository.save(customer);
+        return this.customerRepository.save(customer);
     }
 
     @Override
     public Customer read(String customerID)
     {
-        return this.repository.findById(customerID).orElse(null);
+        return this.customerRepository.findById(customerID).orElse(null);
     }
 
     @Override
     public Customer update(Customer customer)
     {
-        if(this.repository.existsById(customer.getCustomerID()))
-            return this.repository.save(customer);
-        return null;
+        return this.customerRepository.save(customer);
     }
 
     @Override
     public void delete(String customerID)
     {
-        this.repository.deleteById(customerID);
+        this.customerRepository.deleteById(customerID);
     }
 
     @Override
-    public List<Customer> getAll(){return this.repository.findAll().stream().collect(Collectors.toList());}
+    public List<Customer> getAll(){return this.customerRepository.findAll().stream().collect(Collectors.toList());}
 
 
 }
