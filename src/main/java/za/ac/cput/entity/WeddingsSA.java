@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 public class WeddingsSA {
 
-@Id
+    @Id
     private String companyName;
     private int contact;
 
@@ -20,10 +20,6 @@ public class WeddingsSA {
 
         this.companyName = builder.companyName;
         this.contact = builder.contact;
-    }
-
-    public WeddingsSA() {
-
     }
 
     public String getCompanyName() {

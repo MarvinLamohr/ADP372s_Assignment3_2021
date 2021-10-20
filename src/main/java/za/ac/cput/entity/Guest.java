@@ -18,9 +18,6 @@ public class Guest {
         this.guestAmount = builder.guestAmount;
     }
 
-    public Guest() {
-
-    }
 
     public void setGuestAmount(int guestAmount) {
         this.guestAmount = guestAmount;

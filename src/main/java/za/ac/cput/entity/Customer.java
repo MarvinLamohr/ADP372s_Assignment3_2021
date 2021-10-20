@@ -29,10 +29,6 @@ public class  Customer {
         this.contact = builder.contact;
     }
 
-    public Customer() {
-
-    }
-
     public String getCustomerID() {
         return customerID;
     }

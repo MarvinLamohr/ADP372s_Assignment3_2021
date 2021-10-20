@@ -1,6 +1,10 @@
 package za.ac.cput.services;
 
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.Event;
 import za.ac.cput.factory.EventFactory;
 import za.ac.cput.services.event.EventService;
@@ -8,8 +12,10 @@ import za.ac.cput.services.event.EventService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
+@SpringBootTest
 class EventServiceTest {
-
+    @Autowired
     private static EventService eventService;
     private static Event event = EventFactory.createEvent("Lamohr Wedding","Lam2845","2022/09/23");
 

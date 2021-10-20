@@ -32,13 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"**/create").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/ADP372s_Assignment3_2021/**/getall").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/Adp372s_Assignment3_2021/**/getall").hasRole("USER")
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
     }
 
-    @Bean
+
     public PasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }

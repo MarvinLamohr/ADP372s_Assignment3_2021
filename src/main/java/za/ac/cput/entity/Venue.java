@@ -7,7 +7,12 @@
 
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Venue {
+    @Id
     private String venueName,venueLocation;
     private int venueCapacity;
 

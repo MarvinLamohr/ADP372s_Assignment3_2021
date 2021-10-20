@@ -15,9 +15,6 @@ public class Payment {
     @Id
     private int amount;
 
-    public Payment() {
-
-    }
 
     @Override
     public String toString() {

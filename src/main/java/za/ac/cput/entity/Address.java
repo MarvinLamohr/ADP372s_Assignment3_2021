@@ -6,9 +6,14 @@
  */
 package za.ac.cput.entity;
 
-public class Address {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-    private  String streetAddress,postalAddress;
+@Entity
+public class Address {
+    @Id
+    private  String streetAddress;
+    private String postalAddress;
 
 
     private Address(Builder builder) {
