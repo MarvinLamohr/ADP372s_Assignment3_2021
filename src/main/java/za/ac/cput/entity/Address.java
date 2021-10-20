@@ -16,12 +16,24 @@ public class Address {
         this.postalAddress = builder.postalAddress;
     }
 
+    private Address(){
+
+    }
+
     @Override
     public String toString() {
         return "Address{" +
                 "streetAddress='" + streetAddress + '\'' +
                 ", postalAddress='" + postalAddress + '\'' +
                 '}';
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public String getPostalAddress() {
+        return postalAddress;
     }
 
     public static class Builder{
