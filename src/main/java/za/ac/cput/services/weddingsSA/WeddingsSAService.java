@@ -42,13 +42,9 @@ public class WeddingsSAService implements IWeddingSAService{
         return null;
     }
 
-    public boolean delete(String companyName) {
+    public void delete(String companyName) {
 
         this.repository.deleteById(companyName);
-        if(this.repository.existsById(companyName))
-            return false;
-        else
-            return true;
     }
 
     @Override

@@ -30,12 +30,7 @@ public class PaymentController {
     }
 
     @PostMapping
-    public String delete(@RequestBody Payment payment){
-        if(paymentService.delete(payment.getAmount()))
-            return "Payment deleted successfully";
-
-        else
-            return "Payment could not be deleted";
-
+    public void delete(@RequestBody Payment payment){
+        paymentService.delete(payment.getAmount());
     }
 }

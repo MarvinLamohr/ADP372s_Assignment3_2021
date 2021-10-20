@@ -43,12 +43,8 @@ public class PaymentService implements IPaymentService {
         return null;
     }
 
-    public boolean delete(Integer payment) {
+    public void delete(Integer payment) {
         this.repository.deleteById(payment);
-        if(this.repository.existsById(payment))
-            return false;
-        else
-            return true;
     }
 
 

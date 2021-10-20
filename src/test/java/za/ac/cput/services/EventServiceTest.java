@@ -10,19 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EventServiceTest {
 
-    private static EventService service = EventService.getService();
+    private static EventService eventService;
     private static Event event = EventFactory.createEvent("Lamohr Wedding","Lam2845","2022/09/23");
 
     @Test
     void a_create() {
-        Event created = service.create(event);
+        Event created = eventService.create(event);
         assertEquals(created.getEventID(),event.getEventID());
         System.out.println("Created: " +created);
     }
 
     @Test
     void b_read() {
-        Event read = service.read(event.getEventID());
+        Event read = eventService.read(event.getEventID());
         assertNotNull(read);
         System.out.println("Read: " +read);
     }
@@ -30,20 +30,20 @@ class EventServiceTest {
     @Test
     void c_update() {
         Event updated = new Event.Builder().copy(event).setEventName("Robert").build();
-        assertNotNull(service.update(updated));
+        assertNotNull(eventService.update(updated));
         System.out.println("Updated: " +updated);
     }
 
     @Test
     void e_delete() {
-        boolean success = service.delete(event.getEventID());
-        assertTrue(success);
-        System.out.println("Deleted: " +success);
+        eventService.delete(event.getEventID());
+        assertNotNull(eventService);
+        System.out.println("Deleted: " +eventService.getAll());
     }
 
     @Test
     void d_getAll(){
         System.out.println("Show all data: ");
-        System.out.println(service.getAll());
+        System.out.println(eventService.getAll());
     }
 }

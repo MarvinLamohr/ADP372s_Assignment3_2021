@@ -9,14 +9,14 @@ import za.ac.cput.services.employee.EmployeeService;
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
     @PostMapping("/create")
-    public Employee create (Employee employee){
+    public Employee create (@RequestBody Employee employee){
         Employee newEmployee = EmployeeFactory.createEmployee(employee.getEmployeeFirstName(),
                                                               employee.getEmployeeLastName(),
                                                               employee.getEmployeeID(),
@@ -27,26 +27,20 @@ public class EmployeeController {
         return employeeService.create(newEmployee);
     }
 
-    @GetMapping("/read")
+    @GetMapping("/read/{id}")
     public Employee read(@PathVariable String id){
         return employeeService.read(id);
     }
 
-    @PostMapping("/update")
-    public Employee update(@RequestBody Employee employee){
-        return employeeService.update(employee);
+    @PutMapping("/update")
+    public void update(@RequestBody Employee employee){
+        employeeService.update(employee);
     }
 
-    @DeleteMapping("/delete")
-    public String delete(@PathVariable String id){
-        if(employeeService.delete(id))
-            return "Employee Successfully Deleted";
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable String id){ employeeService.delete(id);}
 
-        else
-            return "Employee Could Not Be Deleted";
-
-    }
     @GetMapping("/getall")
-    public List<Employee> getAll(){ return employeeService.getAll(); }
+    public List<Employee> getAll(){ return employeeService.getAll();}
 
 }

@@ -31,12 +31,8 @@ public class GuestController {
     }
 
     @PostMapping
-    public String delete(@RequestBody Guest guest){
-        if(guestService.delete(guest.getGuestAmount()))
-            return "Guest deleted successfully";
-
-        else
-            return "Guest could not be deleted";
+    public void delete(@RequestBody Guest guest){
+        guestService.delete(guest.getGuestAmount());
 
     }
 }

@@ -28,12 +28,8 @@ public class WeddingsSAController {
             }
 
             @PostMapping
-                public String delete(@RequestBody WeddingsSA weddingsSA){
-             if(weddingsSAService.delete(weddingsSA.getCompanyName()))
-                        return "weddingsSA deleted successfully";
-
-     else
-            return "WeddingsSA could not be deleted";
+                public void delete(@RequestBody WeddingsSA weddingsSA){
+             weddingsSAService.delete(weddingsSA.getCompanyName());
 
     }
 }

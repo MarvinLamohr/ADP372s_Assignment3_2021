@@ -33,12 +33,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public String delete(@RequestBody Customer customer){
-        if(customerService.delete(customer.getCustomerID()))
-            return "Customer deleted successfully";
-
-        else
-            return "Customer could not be deleted";
-
+    public void delete(@RequestBody Customer customer){
+        customerService.delete(customer.getCustomerID());
     }
 }

@@ -33,13 +33,8 @@ public class ContactService implements IContactService {
     }
 
     @Override
-    public boolean delete(String contactId) {
-
+    public void delete(String contactId) {
         this.repository.deleteById(contactId);
-        if (this.repository.existsById(contactId))
-            return false;
-        else
-            return true;
     }
     @Override
     public Set<Contact> getAll() {

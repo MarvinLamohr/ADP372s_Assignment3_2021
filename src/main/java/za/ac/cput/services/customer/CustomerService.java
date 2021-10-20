@@ -45,13 +45,9 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public boolean delete(String customerID)
+    public void delete(String customerID)
     {
         this.repository.deleteById(customerID);
-        if(this.repository.existsById(customerID))
-            return false;
-        else
-            return true;
     }
 
     @Override

@@ -31,7 +31,7 @@ class EventControllerTest {
     @Test
     void a_create() {
         String url = BASE_URL + "/create";
-        ResponseEntity<Event> postResponse = restTemplate.postForEntity(url,event,Event.class);
+        ResponseEntity<Event> postResponse = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url,event,Event.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
@@ -45,7 +45,7 @@ class EventControllerTest {
     void b_read() {
         String url = BASE_URL + "/read/" + event.getEventID();
         System.out.println("URL: "+ url);
-        ResponseEntity<Event> response = restTemplate.getForEntity(url,Event.class);
+        ResponseEntity<Event> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).getForEntity(url,Event.class);
         assertEquals(event.getEventID(),response.getBody().getEventID());
     }
 
@@ -55,7 +55,7 @@ class EventControllerTest {
         String url = BASE_URL + "/update";
         System.out.println("URL: "+ url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Event> response = restTemplate.postForEntity(url, updated,Event.class);
+        ResponseEntity<Event> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, updated,Event.class);
         assertNotNull(response.getBody());
     }
 
@@ -63,7 +63,7 @@ class EventControllerTest {
     void d_delete() {
         String url = BASE_URL + "/delete/" + event.getEventID();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 
     @Test

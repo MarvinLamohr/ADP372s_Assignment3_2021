@@ -9,7 +9,7 @@ import za.ac.cput.services.event.EventService;
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/event")
 public class EventController {
 
     @Autowired
@@ -23,25 +23,19 @@ public class EventController {
         return eventService.create(newEvent);
     }
 
-    @GetMapping("/read")
+    @GetMapping("/read/{id}")
     public Event read(@PathVariable String id){
         return eventService.read(id);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Event update(@RequestBody Event event){
         return eventService.update(event);
     }
 
-    @DeleteMapping
-    public String delete(@PathVariable String id){
-        if(eventService.delete(id))
-            return "Event Successfully Deleted";
-
-        else
-            return "Event Could Not Be Deleted";
-
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable String id){ eventService.delete(id);
     }
     @GetMapping("/getall")
-    public List<Event> getAll(){return eventService.getAll(); }
+    public List<Event> getAll(){ return eventService.getAll(); }
 }

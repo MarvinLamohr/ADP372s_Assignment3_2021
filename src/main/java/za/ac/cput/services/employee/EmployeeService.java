@@ -1,50 +1,40 @@
 package za.ac.cput.services.employee;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Employee;
-import za.ac.cput.repository.employee.impl.EmployeeRepository;
+import za.ac.cput.repository.employee.EmployeeRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService implements IEmployeeService {
 
-private static EmployeeService service;
-private EmployeeRepository repository;
-
-    private EmployeeService() {
-        this.repository = EmployeeRepository.getRepository();
-    }
-
-    public static EmployeeService getService(){
-        if(service == null) {
-            service = new EmployeeService();
-        }
-        return service;
-    }
+@Autowired
+private EmployeeRepository employeeRepository;
 
     @Override
     public Employee create(Employee employee) {
-        return this.repository.create(employee);
+        return this.employeeRepository.save(employee);
     }
 
     @Override
-    public Employee read(String employeeId) {
-        return this.repository.read(employeeId);
+    public Employee read(String employee) {
+        return this.employeeRepository.findById(employee).orElseGet(null);
     }
 
     @Override
     public Employee update(Employee employee) {
-        return this.repository.update(employee);
+        return this.employeeRepository.save(employee);
     }
 
     @Override
-    public boolean delete(String employeeId) {
-        this.repository.delete(employeeId);
-        return false;
+    public void delete(String employee) {
+        this.employeeRepository.deleteById(employee);
     }
 
     public List<Employee> getAll() {
-        return this.repository.getAll();
+        return this.employeeRepository.findAll().stream().collect(Collectors.toList());
     }
 }

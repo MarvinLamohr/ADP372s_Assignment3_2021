@@ -14,34 +14,29 @@ public class CoupleService implements ICoupleService {
     private static za.ac.cput.services.couple.CoupleService service = null;
 
     @Autowired
-    private CoupleRepository repository = null;
+    private CoupleRepository coupleRepository;
     @Override
     public Couple create(Couple couple) {
-        return this.repository.save(couple);
+        return this.coupleRepository.save(couple);
     }
 
 
     @Override
     public Couple read(String coupleId) {
-        return this.repository.findById(coupleId).orElse(null);
+        return this.coupleRepository.findById(coupleId).orElse(null);
     }
     @Override
     public Couple update(Couple couple) {
-        if (this.repository.existsById(couple.getCoupleId()))
-            return this.repository.save(couple);
+        if (this.coupleRepository.existsById(couple.getCoupleId()))
+            return this.coupleRepository.save(couple);
         return null;
     }
     @Override
-    public boolean delete(String coupleId) {
-
-        this.repository.deleteById(coupleId);
-        if (this.repository.existsById(coupleId))
-            return false;
-        else
-            return true;
+    public void delete(String coupleId) {
+        this.coupleRepository.deleteById(coupleId);
     }
-    @Override
+
     public Set<Couple> getAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+        return this.coupleRepository.findAll().stream().collect(Collectors.toSet());
     }
 }

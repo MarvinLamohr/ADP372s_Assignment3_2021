@@ -6,6 +6,5 @@ import za.ac.cput.services.IService;
 import java.util.Set;
 
 public interface ICoupleService extends IService<Couple,String> {
-    public Set<Couple> getAll();
 
 }

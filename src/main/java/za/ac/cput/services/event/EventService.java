@@ -1,50 +1,38 @@
 package za.ac.cput.services.event;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Event;
-import za.ac.cput.repository.event.impl.EventRepository;
+import za.ac.cput.repository.event.EventRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EventService implements IEventService {
 
-private static EventService service;
-private EventRepository repository;
-
-    private EventService() {
-        this.repository = EventRepository.getRepository();
-    }
-
-    public static EventService getService(){
-        if(service == null) {
-            service = new EventService();
-        }
-        return service;
-    }
+@Autowired
+private EventRepository eventRepository;
 
     @Override
     public Event create(Event event) {
-        return this.repository.create(event);
+        return this.eventRepository.save(event);
     }
 
     @Override
-    public Event read(String eventId) {
-        return this.repository.read(eventId);
+    public Event read(String event) {
+        return this.eventRepository.findById(event).orElseGet(null);
     }
 
     @Override
     public Event update(Event event) {
-        return this.repository.update(event);
+        return this.eventRepository.save(event);
     }
 
     @Override
-    public boolean delete(String eventId) {
-        this.repository.delete(eventId);
-        return false;
+    public void delete(String event) { this.eventRepository.deleteById(event);;
     }
 
-    public List<Event> getAll() {
-        return this.repository.getAll();
+    public List<Event> getAll() { return this.eventRepository.findAll().stream().collect(Collectors.toList());
     }
 }
