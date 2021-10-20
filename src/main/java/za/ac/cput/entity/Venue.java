@@ -16,6 +16,21 @@ public class Venue {
         this.venueCapacity = builder.venueCapacity;
         this.venueLocation = builder.venueLocation;
     }
+    private Venue(){
+
+    }
+
+    public String getVenueName() {
+        return venueName;
+    }
+
+    public String getVenueLocation() {
+        return venueLocation;
+    }
+
+    public int getVenueCapacity() {
+        return venueCapacity;
+    }
 
     @Override
     public String toString() {
