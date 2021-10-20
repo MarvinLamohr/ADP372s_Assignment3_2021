@@ -43,13 +43,13 @@ class ContactServiceTest {
 
     @Test
     void e_delete() {
-        boolean success = service.delete("7bab3ea9-5dbe-4de9-a5d6-ca20897bfd");
-        assertTrue(success);
-        System.out.println("Delete" + success);
+        service.delete(contact.getCellNumber());
+        assertNotNull(service);
+        System.out.println("Deleted: " +service.getAll());
     }
 
     @Test
-    void d_getAll() {
+    void d_getAll(){
         System.out.println("Show All:");
         System.out.println(service.getAll());
     }

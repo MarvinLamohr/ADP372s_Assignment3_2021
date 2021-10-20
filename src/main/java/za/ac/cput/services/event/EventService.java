@@ -30,7 +30,8 @@ private EventRepository eventRepository;
     }
 
     @Override
-    public void delete(String event) { this.eventRepository.deleteById(event);;
+    public boolean delete(String event) { this.eventRepository.deleteById(event);;
+        return false;
     }
 
     public List<Event> getAll() { return this.eventRepository.findAll().stream().collect(Collectors.toList());
