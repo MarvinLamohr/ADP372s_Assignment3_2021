@@ -43,9 +43,9 @@ class ContactServiceTest {
 
     @Test
     void e_delete() {
-        boolean success = service.delete("7bab3ea9-5dbe-4de9-a5d6-ca20897bfd");
-        assertTrue(success);
-        System.out.println("Delete" + success);
+        service.delete("7bab3ea9-5dbe-4de9-a5d6-ca20897bfd");
+        assertNotNull(service);
+        System.out.println("Delete" + service);
     }
 
     @Test
