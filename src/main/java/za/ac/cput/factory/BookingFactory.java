@@ -11,14 +11,14 @@ import za.ac.cput.util.GenericHelper;
 
 public class BookingFactory {
 
-    public static Booking createBooking(String name, String address, String database, String date, String status, Double price){
+    public static Booking createBooking(String bookingID, String name, String address, String date, String status, Double price){
 
-        String bookingID = GenericHelper.generateId();
+        String bookingId = GenericHelper.generateId();
         Booking booking = new Booking.Builder().setBookingID(bookingID).
                                 //setBookingID(bookingID).
                                 setName(name).
                                 setAddress(address).
-                                setDatabase(database).
+                                //setDatabase(database).
                                 setDate(date).
                                 setStatus(status).
                                 setPrice(price).

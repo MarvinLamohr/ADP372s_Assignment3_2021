@@ -15,12 +15,13 @@ public class BookingController {
     @Autowired
     private bookingService bookingService;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    //@PostMapping("/booking")
+    //@RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     public Booking create(@RequestBody Booking booking) {
-        Booking newBooking = BookingFactory.createBooking(  booking.getName(),
+        Booking newBooking = BookingFactory.createBooking(  booking.getBookingID(),
+                                                            booking.getName(),
                                                             booking.getAddress(),
-                                                            booking.getDatabase(),
+                                                            //booking.getDatabase(),
                                                             booking.getDate(),
                                                             booking.getStatus(),
                                                             booking.getPrice());

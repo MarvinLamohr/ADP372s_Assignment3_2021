@@ -1,4 +1,4 @@
-package za.ac.cput.repository.booking;
+/*package za.ac.cput.repository.booking;
 
 import za.ac.cput.entity.Booking;
 
@@ -64,3 +64,4 @@ public class BookingRepository {
         return bookingDB;
     }
 }
+*/
