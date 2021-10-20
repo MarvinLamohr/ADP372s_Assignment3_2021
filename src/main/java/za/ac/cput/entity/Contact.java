@@ -6,20 +6,21 @@
 package za.ac.cput.entity;
 
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
 public class Contact implements Serializable {
+
+
     @Id
     private String id;
-    private String cellNumber;
-    private   String workPhone;
-    private String email;
+    private String cellNumber,email,workPhone;
 
-    private Contact(){}
+
 
     private  Contact(Builder builder){
         this.id = builder.id;
@@ -29,16 +30,10 @@ public class Contact implements Serializable {
 
     }
 
-    @Override
-    public String toString() {
-        return "Contact{" +
-                "id='" + id + '\'' +
-                ", cellNumber='" + cellNumber + '\'' +
-                ", workPhone='" + workPhone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public Contact() {
 
     }
+
     public String getId() {
         return id;
     }
@@ -52,6 +47,18 @@ public class Contact implements Serializable {
     }
     public String getEmail() {
         return email;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id='" + id + '\'' +
+                ", cellNumber='" + cellNumber + '\'' +
+                ", workPhone='" + workPhone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+
     }
 
 
