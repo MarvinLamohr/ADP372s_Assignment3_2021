@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class bookingServiceTest {
 
     private static bookingService bookingService;
-    private static Booking booking = BookingFactory.createBooking("Hendricks", "21 this str", "", "1 Nov 2021", "Active", 10000.00);
+    private static Booking booking = BookingFactory.createBooking("0001", "Hendricks", "21 that str", "10 Nov 2021", "Active", 10000.00);
 
     @Test
     void a_create() {
@@ -30,7 +30,7 @@ class bookingServiceTest {
     void c_update() {
         Booking updated = new Booking.Builder().copy(booking).setName("Diedricks").build();
         assertNotNull(bookingService.update(updated));
-        System.out.println("Updated: " +updated);
+        System.out.println("Updated: " + updated);
     }
 
     @Test

@@ -19,19 +19,19 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class BookingControllerTest {
 
-    private static Booking booking = BookingFactory.createBooking("Hendricks", "25 That str", "", "10 Nov 2021", "Active", 10000.00);
+    private static Booking booking = BookingFactory.createBooking("0001", "Hendricks", "21 that str", "10 Nov 2021", "Active", 10000.00);
 
     public static String SECURITY_USERNAME="xyz";
     public static String SECURITY_PASSWORD="123";
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private final String BASE_URL = "http://localhost:8080/booking";
+    private String BASE_URL = "http://localhost:8080/booking";
 
     @Test
     void a_create() {
         String url = BASE_URL + "/create";
-        ResponseEntity<Booking> postResponse = restTemplate.postForEntity(url,booking,Booking.class);
+        ResponseEntity<Booking> postResponse = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url,booking,Booking.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
@@ -44,7 +44,7 @@ class BookingControllerTest {
     void b_read() {
         String url = BASE_URL + "/read" + booking.getBookingID();
         System.out.println("URL: "+ url);
-        ResponseEntity<Booking> response = restTemplate.getForEntity(url,Booking.class);
+        ResponseEntity<Booking> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).getForEntity(url,Booking.class);
         assertEquals(booking.getBookingID(), response.getBody().getBookingID());
     }
 
@@ -54,7 +54,7 @@ class BookingControllerTest {
         String url = BASE_URL + "/update";
         System.out.println("URL: "+ url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Booking> response = restTemplate.postForEntity(url, updated, Booking.class);
+        ResponseEntity<Booking> response = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).postForEntity(url, updated, Booking.class);
         assertNotNull(response.getBody());
     }
 
@@ -62,7 +62,7 @@ class BookingControllerTest {
     void d_delete() {
         String url = BASE_URL + "/delete" + booking.getBookingID();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
     }
 
     @Test

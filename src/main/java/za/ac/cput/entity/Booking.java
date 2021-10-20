@@ -6,17 +6,27 @@ package za.ac.cput.entity;
  *  Date: 11 June 2021
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Booking {
-    private String bookingID, name, address, database, date, status;
+    @Id
+    private String bookingID;
+    private String name;
+    private String address;
+    //private String database;
+    private String date;
+    private String status;
     private Double price;
 
-    private Booking() {};
+    private Booking() {}
 
     private Booking(Builder builder){
         this.bookingID = builder.bookingID;
         this.name = builder.name;
         this.address = builder.address;
-        this.database = builder.database;
+        //this.database = builder.database;
         this.date = builder.date;
         this.price = builder.price;
         this.status = builder.status;
@@ -30,7 +40,7 @@ public class Booking {
 
     public String getDate() {return date;}
 
-    public String getDatabase() {return database;}
+    //public String getDatabase() {return database;}
 
     public String getStatus() {return status;}
 
@@ -42,7 +52,7 @@ public class Booking {
                 "booking ID" + bookingID + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", database='" + database + '\'' +
+                //", database='" + database + '\'' +
                 ", date='" + date + '\'' +
                 ", status='" + status + '\'' +
                 ", price=" + price +
@@ -71,12 +81,14 @@ public class Booking {
 
             return this;
         }
-
+/*
         public Builder setDatabase(String database) {
             this.database = database;
 
             return this;
         }
+
+ */
 
         public Builder setDate(String date) {
             this.date = date;
@@ -105,7 +117,7 @@ public class Booking {
             this.bookingID = booking.bookingID;
             this.name = booking.name;
             this.address = booking.address;
-            this.database = booking.database;
+            //this.database = booking.database;
             this.date = booking.date;
             this.price = booking.price;
             this.status = booking.status;
